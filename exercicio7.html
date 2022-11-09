@@ -1,0 +1,48 @@
+<script>
+//aluno
+
+aluno = []
+historico = []
+repetir = 'sim'
+while (repetir == 'sim'){
+    nome = prompt('Digite o nome do aluno: ')
+    matricula = Number(prompt('Digite a matricula do aluno: '))
+    qtdNota = Number(prompt('Quantas notas você deseja inserir?: '))
+    i = 0
+    soma = 0
+    notas = []
+    while(i < qtdNota){
+        n = Number(prompt('Digite as notas do aluno: ')) 
+        notas.push(n)
+        i++
+    }
+
+    for(y = 0; y < qtdNota; y++) {
+        soma += notas[y];
+    }
+
+    media = soma / qtdNota
+
+    if(media >= 7){
+        status = ('Aprovado')
+    }
+    if(media >= 5 && media <= 6){
+        status = ('Recuperação')
+    }
+    if(media < 4){
+        status = ('Reprovado')
+    }
+
+    aluno.push(nome, matricula, notas, soma, media, status)
+
+    historico.push(aluno) 
+    repetir = String(prompt(`
+    Deseja colocar dados de outro aluno?
+    Sim ou Não
+    `))
+}
+
+console.log(historico)
+
+    
+</script>
